@@ -3,14 +3,14 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector:'event-thumbnail',
   template:`
-   <div class="well hoverwell thumbnail">
+   <div class="well hoverwell thumbnail" [routerLink]="['/events',event.id]">
     <h2>{{event?.name}} </h2>
     <div> Date: {{event?.date}} </div>
     <div [ngStyle]="getStartTimeStyle()"
       [ngSwitch] ="event?.time">
        Time : {{event?.time}}
        <span *ngSwitchCase="'8:00 am'"> Early Start </span>
-      <span  *ngSwitchCase="'10:00 am'"> Late Start</span>
+       <span  *ngSwitchCase="'10:00 am'"> Late Start</span>
       <span  *ngSwitchDefault> Normal Start</span>
    </div>
 
@@ -37,7 +37,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class EventThumbnailComponent{
   @Input() event:any;
   @Output() eventClick = new EventEmitter();
-
 
 
 

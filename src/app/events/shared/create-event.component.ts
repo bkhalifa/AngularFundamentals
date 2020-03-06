@@ -1,0 +1,25 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  template:`
+  <h1> new event </h1>
+
+  <div class ="col-md-6">
+<h3>  [Create event form will go here] </h3>
+<br/>
+<br/>
+<button type="submit" class ="btn btn-primary"> save  </button>
+<button type="button" class ="btn btn-secondary" (click)="cancel()"> cancel </button>
+</div>
+
+  `
+})
+export class CreateEventComponent {
+
+  constructor(private router :Router){}
+  isDirty:boolean = true;
+  cancel(){
+      this.router.navigate(['/events'])
+     }
+}
