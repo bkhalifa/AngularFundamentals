@@ -1,16 +1,18 @@
 import { Component } from "@angular/core";
 import {AuhtService}  from './auth.service'
-import { NgForm } from "@angular/forms";
 
 @Component({
-  templateUrl:'./login.component.html'
+  templateUrl:'./login.component.html',
+  styles:[`
+  em { float:right; color:#e05c65; padding-left:10px }`
+  ]
 })
 export class LoginComponent{
 
   constructor(private autservice :AuhtService){}
   userName:any
   password: any
-
+  mouseaction:any
 
 
 login(formValue){

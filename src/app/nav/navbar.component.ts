@@ -13,13 +13,9 @@ import { AuhtService } from '../user/auth.service';
   li > a.active {color: #F97924}
   `]
 })
-export class NavBarComponent implements OnInit{
+export class NavBarComponent {
 
   constructor(public authService :AuhtService){}
 
-  ngOnInit(): void {
-   let cu = this.authService.currentUser
 
-   console.log(cu)
-  }
 }
