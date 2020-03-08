@@ -1,25 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { appRoutes } from './routes';
+import { RouterModule } from '@angular/router';
+
+import { EventListComponent,
+  EventThumbnailComponent,
+  EventService,
+  EventDetailComponent,
+  CreateEventComponent,
+  EventListResolverService,
+  EventRouteActivatorService}
+  from  './events/index'
 
 import { EventAppComponent } from './event-app.component';
-import { EventListComponent } from './events/events-list.component';
-import { EventThumbnailComponent } from './events/event-thumbnail.component';
-import { EventService } from './events/shared/event.service';
 import { ToastrService } from './common/toastr.service';
-import { EventDetailComponent } from './events/event-details/event-detail.component';
 import { NavBarComponent } from './nav/navbar.component';
-import { RouterModule } from '@angular/router';
-import { appRoutes } from './routes';
-import { CreateEventComponent } from './events/shared/create-event.component';
 import { Error404Component } from './error/error404.component';
-import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
-import { EventListResolverService } from './events/event-list-resolver.service';
+import { AuhtService } from './user/auth.service';
+
+
 
 @NgModule({
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
-
   ],
 
   declarations: [
@@ -35,6 +39,7 @@ import { EventListResolverService } from './events/event-list-resolver.service';
   providers:[EventService,
     ToastrService,
     EventRouteActivatorService,
+    AuhtService,
     {
       provide:'canDeactivateCreateEvent', useValue:canDeactivateCreateEvent
     },

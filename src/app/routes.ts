@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router'
 import { EventListComponent } from './events/events-list.component';
 import { EventDetailComponent } from './events/event-details/event-detail.component';
-import { CreateEventComponent } from './events/shared/create-event.component';
+import { CreateEventComponent } from './events/create-event.component';
 import { Error404Component } from './error/error404.component';
 import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
 import { EventListResolverService } from './events/event-list-resolver.service';
