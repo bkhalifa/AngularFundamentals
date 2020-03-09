@@ -14,7 +14,8 @@
     </div>
     <div class="form-group" >
       <label for="password">Password:</label>
-      <em *ngIf="loginForm.controls.password?.invalid && loginForm.controls.password.touched">required</em>
+      <em *ngIf="loginForm.controls.password?.invalid &&
+      (loginForm.controls.password.touched || mouseaction)">required</em>
       <input (ngModel)="password"
        name="pwd" id="password" type="password"
         class="form-control" placeholder="Password..." />
@@ -23,12 +24,12 @@
 <span (mouseenter)="mouseaction=true"(mouseleave)="mouseaction=false">
   <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
 </span>
-
-    <button type="button" class="btn btn-default">Cancel</button>
+&nbsp;
+    <button type="button" (click)="cancel()"class="btn btn-secondary">Cancel</button>
   </form>
 </div>
 
-<div style="color: white;">
+<!-- <div style="color: white;">
 Form :
 loginForm.valid:{{loginForm.valid}}<br>
 loginForm.invalid:{{loginForm.invalid}}<br>
@@ -48,5 +49,5 @@ loginForm.pristine:{{loginForm.controls.userName.pristine}}<br>
 loginForm.submitted:{{loginForm.controls.userName}}<br>
 loginForm.touched:{{loginForm.controls.userName.touched}}<br>
 loginForm.untouched:{{loginForm.controls.userName.untouched}}<br>
-</div>
+</div> -->
 

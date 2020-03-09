@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import {AuhtService}  from './auth.service'
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl:'./login.component.html',
@@ -9,9 +10,9 @@ import {AuhtService}  from './auth.service'
 })
 export class LoginComponent{
 
-  constructor(private autservice :AuhtService){}
-  userName:any
-  password: any
+  constructor(private autservice :AuhtService, private router:Router){}
+  userName:string
+  password: string
   mouseaction:any
 
 
@@ -21,4 +22,7 @@ login(formValue){
 
   }
 
+  cancel(){
+     this.router.navigate(['events'])
+  }
 }
