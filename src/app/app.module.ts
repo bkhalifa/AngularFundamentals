@@ -17,12 +17,15 @@ import { ToastrService } from './common/toastr.service';
 import { NavBarComponent } from './nav/navbar.component';
 import { Error404Component } from './error/error404.component';
 import { AuhtService } from './user/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
 

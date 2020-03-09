@@ -19,6 +19,13 @@ export class EventService{
    return  EVENTS.find(_=>_.id ==id)
   }
 
+saveEvent(newEvent){
+  newEvent.id=999
+  newEvent.session=[]
+
+  EVENTS.push(newEvent);
+}
+
 }
 
 
