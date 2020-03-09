@@ -2,6 +2,10 @@
 body{
   background-color: #3f4a57;
 }
+
+.well{
+  background-color: #485563;
+}
 .hoverwell:hover {
   background-color: #485563;
   cursor: pointer;

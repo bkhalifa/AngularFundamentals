@@ -25,6 +25,10 @@ saveEvent(newEvent){
 
   EVENTS.push(newEvent);
 }
+updateEvent(upEvent:IEvent){
+  let index = EVENTS.findIndex(x=>x.id = upEvent.id)
+   EVENTS[index] = upEvent
+}
 
 }
 
