@@ -15,11 +15,14 @@
       <div><strong>Price:</strong> ${{event?.price}}</div>
     </div>
     <div class="col-md-6">
-      <address>
+      <address *ngIf="event?.location">
         <strong>Address:</strong><br />
         {{event?.location?.address}}<br />
         {{event?.location?.city}}, {{event?.location?.country}}
       </address>
     </div>
   </div>
+  <hr>
+  <session-list [sessions]="event?.sessions"></session-list>
 </div>
+
