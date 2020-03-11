@@ -42,7 +42,6 @@ sessionEvent  : EventEmitter<ISession>
   }
 
   cancelAddMode(flag:false){
-
-     this.addMode = flag
+      this.addMode = flag
   }
 }

@@ -19,6 +19,7 @@ import { NavBarComponent } from './nav/navbar.component';
 import { Error404Component } from './error/error404.component';
 import { AuhtService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
 
 
 
@@ -40,6 +41,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CreateEventComponent,
     SessionListComponent,
     Error404Component,
+    CollapsibleWellComponent
 
   ],
 
