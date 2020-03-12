@@ -20,7 +20,8 @@ export class EventDetailComponent implements OnInit{
   constructor(private eventService:EventService, private router :ActivatedRoute) {}
   event :IEvent
   addMode :boolean
-
+ filterBy :string = 'all'
+ sortBy :string
 @Output()
 sessionEvent  : EventEmitter<ISession>
 

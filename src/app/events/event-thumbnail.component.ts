@@ -4,8 +4,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   selector:'event-thumbnail',
   template:`
    <div class="well hoverwell thumbnail" [routerLink]="['/events',event.id]">
-    <h2>{{event?.name}} </h2>
-    <div> Date: {{event?.date}} </div>
+    <h2>{{event?.name |  uppercase}} </h2>
+    <div> Date: {{event?.date  | date:'shortDate'}} </div>
     <div [ngStyle]="getStartTimeStyle()"
       [ngSwitch] ="event?.time">
        Time : {{event?.time}}
@@ -14,7 +14,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       <span  *ngSwitchDefault> Normal Start</span>
    </div>
 
-    <div> Price: \${{event?.price}} </div>
+    <div> Price: {{event?.price | currency:'USD'}} </div>
     <div *ngIf="event?.location">
         <span>Location : {{event?.location?.adress}} </span>
         <span> &nbsp;</span>
