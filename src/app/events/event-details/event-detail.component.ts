@@ -21,7 +21,7 @@ export class EventDetailComponent implements OnInit{
   event :IEvent
   addMode :boolean
  filterBy :string = 'all'
- sortBy :string
+ sortBy :string ='votes'
 @Output()
 sessionEvent  : EventEmitter<ISession>
 
