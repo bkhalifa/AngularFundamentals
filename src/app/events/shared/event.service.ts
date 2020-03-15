@@ -1,39 +1,55 @@
-import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
-import { IEvent } from './event.model';
+import { Injectable, EventEmitter } from '@angular/core';
+import { Subject, Observable, of, observable } from 'rxjs';
+import { IEvent, ISession } from './event.model';
+import { EmitterVisitorContext } from '@angular/compiler';
+
 
 
 @Injectable()
-export class EventService{
+export class EventService {
 
-  getEvents():Observable<IEvent[]>{
+  getEvents(): Observable<IEvent[]> {
     let subject = new Subject<IEvent[]>()
-    setTimeout(()=>{
+    setTimeout(() => {
       subject.next(EVENTS);
       subject.complete()
-    },100)
-     return subject;
+    }, 100)
+    return subject;
   }
 
-  getEvent(id:number):IEvent{
-   return  EVENTS.find(_=>_.id ==id)
+  getEvent(id: number): IEvent {
+    return EVENTS.find(_ => _.id == id)
   }
 
-saveEvent(newEvent){
-  newEvent.id=999
-  newEvent.session=[]
+  saveEvent(newEvent) {
+    newEvent.id = 999
+    newEvent.session = []
 
-  EVENTS.push(newEvent);
+    EVENTS.push(newEvent);
+  }
+
+  updateEvent(upEvent: IEvent) {
+    let index = EVENTS.findIndex(x => x.id = upEvent.id)
+    EVENTS[index] = upEvent
+  }
+
+  searchSessions(searchTerm: string) {
+    let results: ISession[] = []
+
+    EVENTS.forEach(event => {
+      let matchingSession = event.sessions.filter(session => {
+        if (session.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+          results.push(session)
+        }
+      })
+    })
+
+    return of(results);
+  }
 }
-updateEvent(upEvent:IEvent){
-  let index = EVENTS.findIndex(x=>x.id = upEvent.id)
-   EVENTS[index] = upEvent
-}
-
-}
 
 
-const EVENTS:IEvent[] = [
+const EVENTS: IEvent[] = [
   {
     id: 1,
     name: 'Angular Connect',
@@ -119,7 +135,7 @@ const EVENTS:IEvent[] = [
     time: '9:00 am',
     price: 950.00,
     imageUrl: '/assets/images/ng-nl.png',
-    onlineUrl:'http://ng-nl.org',
+    onlineUrl: 'http://ng-nl.org',
     sessions: [
       {
         id: 1,

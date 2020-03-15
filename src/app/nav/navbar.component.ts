@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AuhtService } from '../user/auth.service';
+import { EventService } from '../events';
+import {map} from 'rxjs/operators'
+import { inject } from '@angular/core/testing';
+import { JQ_TOKEN } from '../common';
 
 @Component({
   selector:'navbar',
@@ -14,8 +18,19 @@ import { AuhtService } from '../user/auth.service';
   `]
 })
 export class NavBarComponent {
+searchTerm:string =""
+searchResults:string =""
+foundSessions :any[]
+  constructor(private eventServices: EventService ,
+            public authService :AuhtService,
+            @Inject(JQ_TOKEN) private $: any){}
 
-  constructor(public authService :AuhtService){}
+  SearchSessions(searchTerm){
+  this.eventServices.searchSessions(searchTerm).subscribe(sessions=>{
+    this.foundSessions = sessions,
+  console.log(this.foundSessions)
+ })
+   }
 
 
 }

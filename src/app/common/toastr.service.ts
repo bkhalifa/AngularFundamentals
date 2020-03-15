@@ -1,5 +1,4 @@
 import { InjectionToken } from '@angular/core';
-import { __exportStar } from 'tslib';
 
 
 

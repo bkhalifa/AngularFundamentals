@@ -1,6 +1,6 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { EventService } from '../shared/event.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { IEvent, ISession } from '../shared';
 
 
@@ -17,7 +17,7 @@ import { IEvent, ISession } from '../shared';
 })
 export class EventDetailComponent implements OnInit{
 
-  constructor(private eventService:EventService, private router :ActivatedRoute) {}
+  constructor(private eventService:EventService, private route :ActivatedRoute) {}
   event :IEvent
   addMode :boolean
  filterBy :string = 'all'
@@ -27,7 +27,12 @@ sessionEvent  : EventEmitter<ISession>
 
 
   ngOnInit(): void {
-    this.event = this.eventService.getEvent(+this.router.snapshot.params['id'])
+    this.route.params.forEach((params:Params)=>{
+      this.event = this.eventService.getEvent(+params['id'])
+    //   setup re initialize
+      this.addMode=false
+    })
+
   }
 
   addSession(){
