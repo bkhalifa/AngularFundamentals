@@ -52,7 +52,7 @@
   </div>
 </nav>
 
-<simple-modal elementId="searchResults" title="matching sessions">
+<simple-modal elementId="searchResults" closeModalConfig="true" title="matching sessions">
   <div class="list-group">
     <a class="list-group-item"
     *ngFor="let session of foundSessions"[routerLink]="['/events',session.id]">
