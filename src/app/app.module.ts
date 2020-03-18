@@ -23,6 +23,8 @@ import { AuhtService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { DurationPipe } from './events/shared/duration.pipe';
+import { UpvoteComponent } from './events/event-details/sessions/upvote.component';
+import { VoterService } from './events/event-details/sessions/voter.service';
 
 
  let toastr:Toastr = window['toastr']
@@ -48,7 +50,8 @@ import { DurationPipe } from './events/shared/duration.pipe';
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpvoteComponent
 
   ],
 
@@ -64,7 +67,8 @@ import { DurationPipe } from './events/shared/duration.pipe';
     {
       provide:'canDeactivateCreateEvent', useValue:canDeactivateCreateEvent
     },
-    EventListResolverService
+    EventListResolverService,
+    VoterService
 
   ],
   bootstrap: [EventAppComponent]
