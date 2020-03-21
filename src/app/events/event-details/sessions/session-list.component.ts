@@ -11,7 +11,7 @@ import { VoterService } from './voter.service';
 })
 export class SessionListComponent implements OnChanges{
 
-constructor(private auth:AuhtService, private voterService:VoterService){}
+constructor(public auth:AuhtService, private voterService:VoterService){}
 
 @Input() sessions :ISession[]
 @Input() filterQuery:string
